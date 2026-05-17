@@ -115,7 +115,7 @@ jobs:
         if: steps.detect.outputs.present == 'true'
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Install frontend dependencies
         if: steps.detect.outputs.present == 'true'
@@ -140,4 +140,3 @@ jobs:
       - name: Build frontend
         if: steps.detect.outputs.present == 'true'
         run: npm run build --if-present
-
