@@ -1,2 +1,39 @@
 # CampusHub
-A campus mutual-aid service platform for posting requests, accepting tasks, managing orders, and building trust.
+
+CampusHub 是一个校园互助服务平台，面向校内任务发布、任务接取、订单管理、评价信任等场景。
+
+## 技术栈
+
+- 前端：Vue、Element Plus、Pinia、Axios
+- 后端：Spring Boot、MyBatis、JWT
+- 数据库与中间件：PostgreSQL、Redis
+
+## 仓库结构
+
+```text
+CampusHub/
+├── backend/      # Spring Boot 后端
+├── frontend/     # Vue 前端
+├── database/     # 数据库脚本、迁移和种子数据
+├── docs/         # 项目文档
+└── screenshots/  # 运行截图、验收截图
+```
+
+## 初始化状态
+
+已完成：
+
+- Git 远程仓库已关联到 `https://github.com/xhy-nju/CampusHub.git`
+- 已补充 `.gitignore`、`.gitattributes`、`.editorconfig`
+- 已配置 GitHub Actions CI，用于后续自动检查前端和后端
+- 已提供 PostgreSQL、Redis 的本地 Docker Compose 配置
+- 已加入目录入口文件，避免空目录无法被 Git 追踪
+
+待完成：
+
+- 初始化 `frontend` 下的 Vue 项目
+- 初始化 `backend` 下的 Spring Boot 项目
+- 确定数据库初始化脚本和本地开发环境
+- 确定部署目标后再补充 CD 流程
+
+更多检查项见 [docs/initialization-checklist.md](docs/initialization-checklist.md)。

@@ -1,0 +1,143 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  repository:
+    name: Repository sanity
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check required project entries
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          required_paths=(
+            ".editorconfig"
+            ".gitattributes"
+            ".gitignore"
+            "README.md"
+            "backend"
+            "database"
+            "docs"
+            "frontend"
+            "screenshots"
+          )
+
+          for path in "${required_paths[@]}"; do
+            if [ ! -e "$path" ]; then
+              echo "::error::$path is missing"
+              exit 1
+            fi
+          done
+
+  backend:
+    name: Backend checks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Detect backend project
+        id: detect
+        shell: bash
+        run: |
+          if [ -f pom.xml ] || [ -f mvnw ] || [ -f build.gradle ] || [ -f build.gradle.kts ] || [ -f gradlew ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "No backend build file found yet; skipping backend checks."
+          fi
+
+      - name: Set up Java
+        if: steps.detect.outputs.present == 'true'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Run backend tests
+        if: steps.detect.outputs.present == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -f mvnw ]; then
+            chmod +x mvnw
+            ./mvnw -B test
+          elif [ -f pom.xml ]; then
+            mvn -B test
+          elif [ -f gradlew ]; then
+            chmod +x gradlew
+            ./gradlew test
+          else
+            gradle test
+          fi
+
+  frontend:
+    name: Frontend checks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Detect frontend project
+        id: detect
+        shell: bash
+        run: |
+          if [ -f package.json ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "No frontend/package.json found yet; skipping frontend checks."
+          fi
+
+      - name: Set up Node.js
+        if: steps.detect.outputs.present == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install frontend dependencies
+        if: steps.detect.outputs.present == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Lint frontend
+        if: steps.detect.outputs.present == 'true'
+        run: npm run lint --if-present
+
+      - name: Test frontend
+        if: steps.detect.outputs.present == 'true'
+        run: npm run test --if-present
+
+      - name: Build frontend
+        if: steps.detect.outputs.present == 'true'
+        run: npm run build --if-present
+
