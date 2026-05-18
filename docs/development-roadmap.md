@@ -40,7 +40,7 @@
 - [x] 建立项目路线文档
 - [x] 建立初版数据库 schema
 - [x] 初始化 Spring Boot 后端工程
-- [ ] 初始化 Vue 前端工程
+- [x] 初始化 Vue 前端工程
 
 完成标准：
 
@@ -137,19 +137,19 @@ open -> pending_confirm -> in_progress -> provider_done -> completed
 
 ### 阶段 6：前端基础工程
 
-- [ ] 创建 Vue 3 + Vite 项目
-- [ ] 安装 Element Plus、Pinia、Axios、Vue Router
-- [ ] 配置 API base URL
-- [ ] 配置 Axios 拦截器
-- [ ] 配置登录 Token 存储
-- [ ] 配置路由守卫
+- [x] 创建 Vue 3 + Vite 项目
+- [x] 安装 Element Plus、Pinia、Axios、Vue Router
+- [x] 配置 API base URL
+- [x] 配置 Axios 拦截器
+- [x] 配置登录 Token 存储
+- [x] 配置路由守卫
 - [ ] 建立页面布局
 
 完成标准：
 
-- 前端可以启动
-- 登录状态可以持久化
-- API 错误有统一提示
+- [x] 前端可以启动
+- [x] 登录状态可以持久化
+- [ ] API 错误有统一提示
 
 ### 阶段 7：前端主流程页面
 
@@ -260,10 +260,10 @@ open -> pending_confirm -> in_progress -> provider_done -> completed
 
 下一步建议按以下顺序做：
 
-1. 实现分类查询接口 `GET /categories`
-2. 实现需求发布接口 `POST /demands`
-3. 实现需求列表与详情接口
-4. 初始化 Vue 前端工程
-5. 做登录页、注册页和需求列表页
+1. 根据参考样式实现登录页
+2. 根据参考样式实现注册页
+3. 实现个人中心基础页面，验证 token 持久化和 `/users/me`
+4. 实现分类查询接口 `GET /categories`
+5. 实现需求发布、列表与详情接口
 
 这套顺序的好处是：每一步都能运行验证，不会长期停留在“只有代码但没有闭环”的状态。

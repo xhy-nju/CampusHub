@@ -31,10 +31,12 @@ CampusHub/
 - 已初始化 Spring Boot 后端工程
 - 已完成后端健康检查、统一响应、全局异常处理、JWT 登录鉴权
 - 已完成用户注册、登录、当前用户信息、个人资料修改接口
+- 已初始化 Vue 3 + Vite 前端工程
+- 已配置 Element Plus、Pinia、Axios、Vue Router、TypeScript
 
 待完成：
 
-- 初始化 `frontend` 下的 Vue 项目
+- 实现登录、注册、个人中心页面
 - 实现需求分类、需求发布与浏览
 - 确定部署目标后再补充 CD 流程
 
@@ -76,6 +78,27 @@ http://localhost:8080/api/health
 ```bash
 cd backend
 mvn test
+```
+
+启动前端：
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+前端默认地址：
+
+```text
+http://localhost:5173
+```
+
+运行前端构建检查：
+
+```bash
+cd frontend
+npm run build
 ```
 
 如果 PostgreSQL 容器创建得早于 `database/init` 初始化脚本，可能出现 `relation "users" does not exist`。可以在仓库根目录补执行一次初始化脚本：

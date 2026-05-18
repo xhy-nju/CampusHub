@@ -1,8 +1,8 @@
 # Frontend
 
-Vue 前端工程目录。
+Vue 前端工程目录，基于 Vue 3 + Vite 初始化。
 
-建议后续约定：
+## 技术栈
 
 - Vue 3
 - Vite
@@ -10,4 +10,56 @@ Vue 前端工程目录。
 - Element Plus
 - Pinia
 - Axios
-- TypeScript 可按团队熟悉程度决定是否启用
+- Vue Router
+- TypeScript
+
+## 本地启动
+
+安装依赖：
+
+```bash
+npm install
+```
+
+启动开发服务器：
+
+```bash
+npm run dev
+```
+
+默认访问地址：
+
+```text
+http://localhost:5173
+```
+
+构建检查：
+
+```bash
+npm run build
+```
+
+## 环境变量
+
+本地开发默认通过 Vite 代理访问后端：
+
+```env
+VITE_API_BASE_URL=/api
+VITE_BACKEND_PROXY_TARGET=http://localhost:8080
+```
+
+后端需要先启动在 `http://localhost:8080`。如果部署到真实环境，可以把 `VITE_API_BASE_URL` 改成完整 API 地址。
+
+## 当前结构
+
+```text
+src/
+├── api/       # Axios 实例和接口请求
+├── router/    # Vue Router 路由和守卫
+├── stores/    # Pinia 状态
+├── styles/    # 全局样式
+├── types/     # 前端类型定义
+└── views/     # 页面入口，当前仅放占位页
+```
+
+当前只完成前置初始化和占位路由，实际登录、注册页面会在确认参考样式后再开发。
