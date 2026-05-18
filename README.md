@@ -28,12 +28,14 @@ CampusHub/
 - 已配置 GitHub Actions CI，用于后续自动检查前端和后端
 - 已提供 PostgreSQL、Redis 的本地 Docker Compose 配置
 - 已加入目录入口文件，避免空目录无法被 Git 追踪
+- 已初始化 Spring Boot 后端工程
+- 已完成后端健康检查、统一响应、全局异常处理、JWT 登录鉴权
+- 已完成用户注册、登录、当前用户信息、个人资料修改接口
 
 待完成：
 
 - 初始化 `frontend` 下的 Vue 项目
-- 初始化 `backend` 下的 Spring Boot 项目
-- 确定数据库初始化脚本和本地开发环境
+- 实现需求分类、需求发布与浏览
 - 确定部署目标后再补充 CD 流程
 
 更多检查项见 [docs/initialization-checklist.md](docs/initialization-checklist.md)。
@@ -67,4 +69,18 @@ mvn spring-boot:run
 
 ```text
 http://localhost:8080/api/health
+```
+
+运行后端测试：
+
+```bash
+cd backend
+mvn test
+```
+
+如果 PostgreSQL 容器创建得早于 `database/init` 初始化脚本，可能出现 `relation "users" does not exist`。可以在仓库根目录补执行一次初始化脚本：
+
+```bash
+docker compose exec -T postgres psql -U campushub -d campushub -f /docker-entrypoint-initdb.d/001_schema.sql
+docker compose exec -T postgres psql -U campushub -d campushub -f /docker-entrypoint-initdb.d/002_seed.sql
 ```

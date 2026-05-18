@@ -31,6 +31,91 @@ Authorization: Bearer <token>
 - `GET /users/me`：获取当前用户
 - `PUT /users/me/profile`：修改个人资料
 
+### `POST /auth/register`
+
+请求：
+
+```json
+{
+  "studentNo": "student001",
+  "password": "password123",
+  "nickname": "Student",
+  "college": "Software School",
+  "contact": "student001@example.com"
+}
+```
+
+响应：
+
+```json
+{
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "tokenType": "Bearer",
+    "accessToken": "<token>",
+    "expiresInSeconds": 86400,
+    "user": {
+      "id": 1,
+      "studentNo": "student001",
+      "role": "user",
+      "status": "active",
+      "creditScore": 100,
+      "profile": {
+        "nickname": "Student",
+        "avatarUrl": null,
+        "college": "Software School",
+        "contact": "student001@example.com",
+        "bio": null
+      }
+    }
+  }
+}
+```
+
+### `POST /auth/login`
+
+请求：
+
+```json
+{
+  "studentNo": "student001",
+  "password": "password123"
+}
+```
+
+响应结构同注册接口。
+
+### `GET /users/me`
+
+请求头：
+
+```text
+Authorization: Bearer <token>
+```
+
+响应 `data` 为当前用户信息。
+
+### `PUT /users/me/profile`
+
+请求头：
+
+```text
+Authorization: Bearer <token>
+```
+
+请求：
+
+```json
+{
+  "nickname": "New Name",
+  "avatarUrl": "https://example.com/avatar.png",
+  "college": "Software School",
+  "contact": "student001@example.com",
+  "bio": "Hello CampusHub"
+}
+```
+
 ## 4. 分类
 
 - `GET /categories`：分类列表
@@ -82,4 +167,3 @@ Authorization: Bearer <token>
 - `POST /admin/demands/{id}/approve`：审核通过
 - `POST /admin/demands/{id}/reject`：审核拒绝
 - `GET /admin/statistics`：统计数据
-

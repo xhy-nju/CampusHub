@@ -1,5 +1,7 @@
 package com.campushub.health;
 
+import com.campushub.security.JwtService;
+import com.campushub.user.mapper.UserMapper;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -24,6 +26,12 @@ class HealthControllerTest {
 
     @MockitoBean
     private HealthStatusService healthStatusService;
+
+    @MockitoBean
+    private JwtService jwtService;
+
+    @MockitoBean
+    private UserMapper userMapper;
 
     @Test
     void healthReturnsWrappedStatus() throws Exception {

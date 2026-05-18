@@ -53,44 +53,44 @@
 - [x] 创建 Spring Boot 3.x 项目
 - [x] 配置 Java 17、Maven、PostgreSQL Driver、MyBatis、Spring Security、Redis
 - [x] 配置 `application.yml` 和 `local` profile
-- [ ] 建立后端包结构：
+- [x] 建立后端包结构：
   - `common`
   - `config`
   - `security`
-  - `controller`
+  - `controller` / `api`
   - `service`
   - `mapper`
-  - `entity`
+  - `domain`
   - `dto`
-  - `vo`
+  - `vo` / `response`
   - `exception`
 - [x] 实现统一响应结构 `ApiResponse<T>`
-- [ ] 实现全局异常处理
-- [ ] 实现参数校验
+- [x] 实现全局异常处理
+- [x] 实现参数校验
 - [ ] 实现分页响应
-- [ ] 实现 JWT 签发、解析和鉴权过滤器
+- [x] 实现 JWT 签发、解析和鉴权过滤器
 
 完成标准：
 
-- 后端可以启动
-- `/api/health` 返回正常
-- 未登录访问受保护接口会返回 401
+- [x] 后端可以启动
+- [x] `/api/health` 返回正常
+- [x] 未登录访问受保护接口会返回 401
 
 ### 阶段 3：用户模块
 
-- [ ] 用户注册
-- [ ] 用户登录
-- [ ] 获取当前用户信息
-- [ ] 修改个人资料
-- [ ] 密码 BCrypt 加密
-- [ ] 用户状态校验：正常、禁用
-- [ ] 管理员角色预留
+- [x] 用户注册
+- [x] 用户登录
+- [x] 获取当前用户信息
+- [x] 修改个人资料
+- [x] 密码 BCrypt 加密
+- [x] 用户状态校验：正常、禁用
+- [x] 管理员角色预留
 
 完成标准：
 
-- 可以注册并登录
-- 登录后能拿到当前用户信息
-- Token 过期或缺失时接口能正确拒绝
+- [x] 可以注册并登录
+- [x] 登录后能拿到当前用户信息
+- [x] Token 过期或缺失时接口能正确拒绝
 
 ### 阶段 4：需求模块
 
@@ -260,10 +260,10 @@ open -> pending_confirm -> in_progress -> provider_done -> completed
 
 下一步建议按以下顺序做：
 
-1. 验证 Spring Boot 后端工程、PostgreSQL、Redis 能一起启动
-2. 实现用户注册 / 登录
-3. 实现需求分类和需求发布
+1. 实现分类查询接口 `GET /categories`
+2. 实现需求发布接口 `POST /demands`
+3. 实现需求列表与详情接口
 4. 初始化 Vue 前端工程
-5. 做登录页和需求列表页
+5. 做登录页、注册页和需求列表页
 
 这套顺序的好处是：每一步都能运行验证，不会长期停留在“只有代码但没有闭环”的状态。
