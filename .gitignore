@@ -8,6 +8,10 @@ desktop.ini
 # Editors and IDEs
 .idea/
 *.iml
+.classpath
+.project
+.settings/
+.factorypath
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
@@ -17,6 +21,8 @@ desktop.ini
 .env.*
 !.env.example
 !**/.env.example
+.envrc
+*.local
 application-local.yml
 application-local.yaml
 application-*.local.yml
@@ -33,12 +39,19 @@ logs/
 # Frontend: Vue / Vite / Node
 node_modules/
 **/node_modules/
+coverage/
 frontend/dist/
 frontend/.vite/
 frontend/.cache/
+frontend/.eslintcache
+frontend/.stylelintcache
 frontend/coverage/
+frontend/playwright-report/
+frontend/test-results/
+frontend/storybook-static/
 frontend/.env.local
 frontend/.env.*.local
+*.tsbuildinfo
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -57,11 +70,17 @@ replay_pid*
 # Database dumps and generated data
 database/dumps/
 database/backups/
+postgres-data/
+redis-data/
 *.dump
 *.sql.gz
 *.sqlite
 *.sqlite3
 dump.rdb
+
+# Local Docker overrides
+docker-compose.override.yml
+compose.override.yml
 
 # Uploaded or generated local assets
 uploads/

@@ -37,3 +37,13 @@ CampusHub/
 - 确定部署目标后再补充 CD 流程
 
 更多检查项见 [docs/initialization-checklist.md](docs/initialization-checklist.md)。
+
+## 开发入口
+
+- [需求说明](docs/requirements.md)
+- [开发流程清单](docs/development-roadmap.md)
+- [数据库设计](docs/database-design.md)
+- [API 草案](docs/api-contract.md)
+- [ADR 目录](docs/adr/README.md)
+
+建议从 [开发流程清单](docs/development-roadmap.md) 的“当前立即执行任务”开始推进。

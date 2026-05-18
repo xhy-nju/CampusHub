@@ -19,7 +19,7 @@
 当前 CI 会在 `main` 分支 push 和 pull request 时运行。
 
 - 如果 `backend` 目录中存在 `pom.xml`、`mvnw`、`build.gradle`、`build.gradle.kts` 或 `gradlew`，CI 会使用 Java 17 运行后端测试
-- 如果 `frontend` 目录中存在 `package.json`，CI 会使用 Node.js 20 安装依赖，并依次尝试运行 `lint`、`test`、`build`
+- 如果 `frontend` 目录中存在 `package.json`，CI 会使用 Node.js 24 安装依赖，并依次尝试运行 `lint`、`test`、`build`
 - 在前后端项目尚未脚手架化之前，对应检查会自动跳过，避免空项目阶段误报失败
 
 ## 仍建议尽快完成
