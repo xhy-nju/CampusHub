@@ -47,3 +47,24 @@ CampusHub/
 - [ADR 目录](docs/adr/README.md)
 
 建议从 [开发流程清单](docs/development-roadmap.md) 的“当前立即执行任务”开始推进。
+
+## 本地开发
+
+启动数据库和 Redis：
+
+```bash
+docker compose up -d
+```
+
+启动后端：
+
+```bash
+cd backend
+mvn spring-boot:run
+```
+
+后端健康检查地址：
+
+```text
+http://localhost:8080/api/health
+```

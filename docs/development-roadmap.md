@@ -39,7 +39,7 @@
 - [x] 确定技术栈：Vue、Element Plus、Pinia、Axios、Spring Boot、MyBatis、JWT、PostgreSQL、Redis
 - [x] 建立项目路线文档
 - [x] 建立初版数据库 schema
-- [ ] 初始化 Spring Boot 后端工程
+- [x] 初始化 Spring Boot 后端工程
 - [ ] 初始化 Vue 前端工程
 
 完成标准：
@@ -50,9 +50,9 @@
 
 ### 阶段 2：后端基础设施
 
-- [ ] 创建 Spring Boot 3.x 项目
-- [ ] 配置 Java 17、Maven、PostgreSQL Driver、MyBatis、Spring Security、Redis、JWT
-- [ ] 配置 `application.yml` 和 `local` profile
+- [x] 创建 Spring Boot 3.x 项目
+- [x] 配置 Java 17、Maven、PostgreSQL Driver、MyBatis、Spring Security、Redis
+- [x] 配置 `application.yml` 和 `local` profile
 - [ ] 建立后端包结构：
   - `common`
   - `config`
@@ -64,7 +64,7 @@
   - `dto`
   - `vo`
   - `exception`
-- [ ] 实现统一响应结构 `ApiResponse<T>`
+- [x] 实现统一响应结构 `ApiResponse<T>`
 - [ ] 实现全局异常处理
 - [ ] 实现参数校验
 - [ ] 实现分页响应
@@ -260,13 +260,10 @@ open -> pending_confirm -> in_progress -> provider_done -> completed
 
 下一步建议按以下顺序做：
 
-1. 初始化 Spring Boot 后端工程
-2. 接入 PostgreSQL 和 MyBatis
-3. 实现 `/api/health`
-4. 实现用户注册 / 登录
-5. 实现需求分类和需求发布
-6. 初始化 Vue 前端工程
-7. 做登录页和需求列表页
+1. 验证 Spring Boot 后端工程、PostgreSQL、Redis 能一起启动
+2. 实现用户注册 / 登录
+3. 实现需求分类和需求发布
+4. 初始化 Vue 前端工程
+5. 做登录页和需求列表页
 
 这套顺序的好处是：每一步都能运行验证，不会长期停留在“只有代码但没有闭环”的状态。
-
