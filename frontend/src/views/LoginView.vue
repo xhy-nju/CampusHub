@@ -4,6 +4,7 @@ import { ElMessage } from 'element-plus'
 import { computed, reactive, ref } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 
+import { getApiErrorMessage } from '@/api/http'
 import campusIllustration from '@/assets/login-campus.svg'
 import { useAuthStore } from '@/stores/auth'
 
@@ -34,16 +35,20 @@ async function handleLogin() {
     await authStore.login({
       studentNo: form.studentNo.trim(),
       password: form.password
-    })
+    }, form.remember)
 
     ElMessage.success('登录成功')
     const redirect = typeof route.query.redirect === 'string' ? route.query.redirect : '/me'
     await router.push(redirect)
-  } catch {
-    ElMessage.error('学号或密码错误')
+  } catch (error) {
+    ElMessage.error(getApiErrorMessage(error, '登录失败，请稍后再试'))
   } finally {
     loading.value = false
   }
+}
+
+function handleForgotPassword() {
+  ElMessage.info('请联系平台管理员重置密码')
 }
 
 function handleSsoLogin() {
@@ -164,7 +169,7 @@ const featureItems = [
               <input v-model="form.remember" type="checkbox" />
               <span>记住我</span>
             </label>
-            <button class="text-button" type="button">忘记密码?</button>
+            <button class="text-button" type="button" @click="handleForgotPassword">忘记密码?</button>
           </div>
 
           <button class="primary-button" :disabled="loading" type="submit">

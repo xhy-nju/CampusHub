@@ -4,6 +4,7 @@ import { ElMessage } from 'element-plus'
 import { computed, reactive, ref } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
 
+import { getApiErrorMessage } from '@/api/http'
 import campusIllustration from '@/assets/login-campus.svg'
 import { useAuthStore } from '@/stores/auth'
 
@@ -88,12 +89,12 @@ async function handleRegister() {
       nickname: form.nickname.trim(),
       contact: form.phone.trim(),
       password: form.password
-    })
+    }, true)
 
     ElMessage.success('注册成功')
     await router.push('/me')
-  } catch {
-    ElMessage.error('注册失败，请检查信息或稍后再试')
+  } catch (error) {
+    ElMessage.error(getApiErrorMessage(error, '注册失败，请检查信息或稍后再试'))
   } finally {
     loading.value = false
   }

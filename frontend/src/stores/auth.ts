@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 import { authApi } from '@/api/auth'
-import { AUTH_TOKEN_STORAGE_KEY } from '@/api/http'
+import { clearAuthToken, getAuthToken, persistAuthToken } from '@/api/http'
 import type { AuthResponse, LoginPayload, RegisterPayload, UserSummary } from '@/types/auth'
 
 interface AuthState {
@@ -11,7 +11,7 @@ interface AuthState {
 
 export const useAuthStore = defineStore('auth', {
   state: (): AuthState => ({
-    token: localStorage.getItem(AUTH_TOKEN_STORAGE_KEY),
+    token: getAuthToken(),
     user: null
   }),
 
@@ -20,15 +20,15 @@ export const useAuthStore = defineStore('auth', {
   },
 
   actions: {
-    async register(payload: RegisterPayload) {
+    async register(payload: RegisterPayload, remember = true) {
       const response = await authApi.register(payload)
-      this.applyAuth(response.data)
+      this.applyAuth(response.data, remember)
       return response.data
     },
 
-    async login(payload: LoginPayload) {
+    async login(payload: LoginPayload, remember = false) {
       const response = await authApi.login(payload)
-      this.applyAuth(response.data)
+      this.applyAuth(response.data, remember)
       return response.data
     },
 
@@ -45,13 +45,13 @@ export const useAuthStore = defineStore('auth', {
     logout() {
       this.token = null
       this.user = null
-      localStorage.removeItem(AUTH_TOKEN_STORAGE_KEY)
+      clearAuthToken()
     },
 
-    applyAuth(auth: AuthResponse) {
+    applyAuth(auth: AuthResponse, remember: boolean) {
       this.token = auth.accessToken
       this.user = auth.user
-      localStorage.setItem(AUTH_TOKEN_STORAGE_KEY, auth.accessToken)
+      persistAuthToken(auth.accessToken, remember)
     }
   }
 })

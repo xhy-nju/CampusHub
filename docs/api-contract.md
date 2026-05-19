@@ -40,8 +40,7 @@ Authorization: Bearer <token>
   "studentNo": "student001",
   "password": "password123",
   "nickname": "Student",
-  "college": "Software School",
-  "contact": "student001@example.com"
+  "contact": "13800138000"
 }
 ```
 
@@ -64,8 +63,8 @@ Authorization: Bearer <token>
       "profile": {
         "nickname": "Student",
         "avatarUrl": null,
-        "college": "Software School",
-        "contact": "student001@example.com",
+        "college": null,
+        "contact": "13800138000",
         "bio": null
       }
     }

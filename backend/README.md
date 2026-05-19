@@ -53,7 +53,7 @@ mvn test
 ```bash
 curl -X POST http://localhost:8080/api/auth/register \
   -H "Content-Type: application/json" \
-  -d "{\"studentNo\":\"student001\",\"password\":\"password123\",\"nickname\":\"Student\"}"
+  -d "{\"studentNo\":\"student001\",\"password\":\"password123\",\"nickname\":\"Student\",\"contact\":\"13800138000\"}"
 ```
 
 登录后访问当前用户：
