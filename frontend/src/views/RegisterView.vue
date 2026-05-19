@@ -266,7 +266,7 @@ async function handleRegister() {
 
 .register-shell {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(420px, 0.7fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(420px, 0.76fr);
   gap: 50px;
   align-self: center;
   width: min(100%, 1568px);
@@ -417,8 +417,8 @@ async function handleRegister() {
 .register-card {
   align-self: center;
   width: 100%;
-  max-width: 568px;
-  padding: 34px 44px 32px;
+  max-width: 614px;
+  padding: 38px 46px 36px;
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid #e5ebf5;
   border-radius: 20px;
@@ -434,24 +434,24 @@ async function handleRegister() {
 }
 
 .register-card__header p {
-  margin: 10px 0 0;
+  margin: 12px 0 0;
   color: #7a879d;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 600;
 }
 
 .register-form {
   display: grid;
-  gap: 12px;
-  margin-top: 22px;
+  gap: 14px;
+  margin-top: 24px;
 }
 
 .field {
   display: grid;
   grid-template-columns: 28px minmax(0, 1fr) 28px;
   align-items: center;
-  height: 50px;
-  padding: 0 18px;
+  height: 56px;
+  padding: 0 20px;
   background: #ffffff;
   border: 1px solid #d9e1ee;
   border-radius: 7px;
@@ -468,8 +468,8 @@ async function handleRegister() {
 
 .field__icon,
 .field__suffix svg {
-  width: 23px;
-  height: 23px;
+  width: 24px;
+  height: 24px;
   color: #68778e;
 }
 
@@ -481,7 +481,7 @@ async function handleRegister() {
   padding: 0 12px;
   color: #12213a;
   background: transparent;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -507,9 +507,9 @@ async function handleRegister() {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 54px;
+  height: 56px;
   border-radius: 7px;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 800;
   cursor: pointer;
 }
@@ -528,7 +528,7 @@ async function handleRegister() {
 }
 
 .login-entry {
-  margin: 18px 0 0;
+  margin: 20px 0 0;
   color: #5f6d83;
   text-align: center;
   font-size: 17px;
@@ -545,7 +545,7 @@ async function handleRegister() {
   grid-template-columns: 1fr auto 1fr;
   gap: 22px;
   align-items: center;
-  margin: 18px 0 16px;
+  margin: 20px 0 18px;
   color: #66758c;
 }
 
