@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 
 const LoginView = () => import('@/views/LoginView.vue')
+const RegisterView = () => import('@/views/RegisterView.vue')
 const PlaceholderView = () => import('@/views/PlaceholderView.vue')
 
 const router = createRouter({
@@ -26,11 +27,7 @@ const router = createRouter({
     {
       path: '/register',
       name: 'register',
-      component: PlaceholderView,
-      props: {
-        title: 'Register',
-        description: 'Registration page will be implemented after the visual reference is confirmed.'
-      },
+      component: RegisterView,
       meta: {
         guestOnly: true
       }
