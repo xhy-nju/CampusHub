@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import { useAuthStore } from '@/stores/auth'
 
+const LoginView = () => import('@/views/LoginView.vue')
 const PlaceholderView = () => import('@/views/PlaceholderView.vue')
 
 const router = createRouter({
@@ -10,20 +11,14 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: PlaceholderView,
-      props: {
-        title: 'CampusHub',
-        description: 'Frontend scaffold is ready.'
+      redirect: {
+        name: 'login'
       }
     },
     {
       path: '/login',
       name: 'login',
-      component: PlaceholderView,
-      props: {
-        title: 'Login',
-        description: 'Login page will be implemented after the visual reference is confirmed.'
-      },
+      component: LoginView,
       meta: {
         guestOnly: true
       }
