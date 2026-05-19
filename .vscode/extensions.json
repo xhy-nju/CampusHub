@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "Vue.volar",
+    "EditorConfig.EditorConfig"
+  ],
+  "unwantedRecommendations": [
+    "octref.vetur"
+  ]
+}

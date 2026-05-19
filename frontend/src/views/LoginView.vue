@@ -206,7 +206,7 @@ const featureItems = [
 .login-page {
   display: grid;
   min-height: 100vh;
-  padding: 66px 70px 32px;
+  padding: clamp(24px, 4vh, 46px) 70px 22px;
   color: #0f1d35;
   background:
     linear-gradient(135deg, rgba(232, 238, 255, 0.92) 0%, rgba(249, 251, 255, 0.98) 48%, #ffffff 100%),
@@ -218,12 +218,12 @@ const featureItems = [
 .login-shell {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(420px, 0.76fr);
-  gap: 58px;
+  gap: 50px;
   align-self: center;
   width: min(100%, 1568px);
-  min-height: 812px;
+  min-height: min(742px, calc(100vh - 112px));
   margin: 0 auto;
-  padding: 68px 78px 60px;
+  padding: clamp(42px, 5vh, 56px) 78px clamp(34px, 4vh, 46px);
   background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(222, 230, 246, 0.86);
   border-radius: 28px;
@@ -241,13 +241,13 @@ const featureItems = [
 .brand-header {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
 }
 
 .brand-mark {
   display: grid;
-  width: 74px;
-  height: 74px;
+  width: 68px;
+  height: 68px;
   color: #1f6fff;
   filter: drop-shadow(0 12px 18px rgba(34, 103, 255, 0.24));
   place-items: center;
@@ -261,14 +261,14 @@ const featureItems = [
 .brand-name {
   display: flex;
   align-items: baseline;
-  gap: 14px;
-  font-size: 26px;
+  gap: 12px;
+  font-size: 24px;
   line-height: 1;
 }
 
 .brand-name strong {
   color: #1e68f6;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 800;
 }
 
@@ -278,19 +278,19 @@ const featureItems = [
 }
 
 .welcome-copy {
-  margin-top: 44px;
+  margin-top: 34px;
 }
 
 .welcome-copy h1 {
   margin: 0;
   color: #091731;
-  font-size: 60px;
+  font-size: 54px;
   font-weight: 900;
   line-height: 1.12;
 }
 
 .welcome-copy p {
-  margin: 20px 0 0;
+  margin: 14px 0 0;
   color: #607088;
   font-size: 22px;
   font-weight: 600;
@@ -298,8 +298,8 @@ const featureItems = [
 
 .campus-illustration {
   align-self: end;
-  width: min(100%, 900px);
-  margin: 12px 0 0 -78px;
+  width: min(100%, 830px);
+  margin: 4px 0 0 -72px;
   user-select: none;
   pointer-events: none;
 }
@@ -307,8 +307,8 @@ const featureItems = [
 .feature-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 36px;
-  margin-top: 16px;
+  gap: 28px;
+  margin-top: 10px;
   padding: 0 12px;
 }
 
@@ -369,7 +369,7 @@ const featureItems = [
   align-self: center;
   width: 100%;
   max-width: 614px;
-  padding: 46px 48px 44px;
+  padding: 38px 46px 36px;
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid #e5ebf5;
   border-radius: 20px;
@@ -379,13 +379,13 @@ const featureItems = [
 .login-card__header h2 {
   margin: 0;
   color: #10203a;
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 900;
   line-height: 1.2;
 }
 
 .login-card__header p {
-  margin: 16px 0 0;
+  margin: 12px 0 0;
   color: #7a879d;
   font-size: 19px;
   font-weight: 600;
@@ -393,15 +393,15 @@ const featureItems = [
 
 .login-form {
   display: grid;
-  gap: 22px;
-  margin-top: 32px;
+  gap: 18px;
+  margin-top: 26px;
 }
 
 .field {
   display: grid;
   grid-template-columns: 28px minmax(0, 1fr) 28px;
   align-items: center;
-  height: 60px;
+  height: 56px;
   padding: 0 20px;
   background: #ffffff;
   border: 1px solid #d9e1ee;
@@ -491,7 +491,7 @@ const featureItems = [
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 61px;
+  height: 56px;
   border-radius: 7px;
   font-size: 21px;
   font-weight: 800;
@@ -499,7 +499,7 @@ const featureItems = [
 }
 
 .primary-button {
-  margin-top: 8px;
+  margin-top: 4px;
   border: 0;
   color: #ffffff;
   background: linear-gradient(100deg, #1268ff 0%, #246dff 45%, #7442ef 100%);
@@ -516,7 +516,7 @@ const featureItems = [
   grid-template-columns: 1fr auto 1fr;
   gap: 22px;
   align-items: center;
-  margin: 28px 0 22px;
+  margin: 20px 0 18px;
   color: #66758c;
 }
 
@@ -550,7 +550,7 @@ const featureItems = [
 }
 
 .register-entry {
-  margin: 26px 0 0;
+  margin: 20px 0 0;
   color: #5f6d83;
   text-align: center;
   font-size: 17px;
@@ -568,7 +568,7 @@ const featureItems = [
   gap: 18px;
   align-items: center;
   justify-content: center;
-  margin-top: 34px;
+  margin-top: 22px;
   color: #8793a6;
   font-size: 14px;
   font-weight: 600;
